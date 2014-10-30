@@ -1,0 +1,112 @@
+body
+  background: #f6f6c4
+  overflow: hidden 
+  
+h1
+  margin: 0
+  padding: 1em 0 0
+  color: #f6f6c4
+
+h2
+  color: black
+  font-weight: 300
+  font-size: 28px
+  
+article
+  background-color: #d73737
+  height: 406px
+  text-align: center
+  position: relative
+  margin-bottom: 180px
+  margin-bottom: 150px
+  width: 100%
+  z-index: 1
+
+
+.spinner-wrap 
+  display: block
+  width: 327px
+  height: 327px
+  position: relative
+  left: 50%
+  margin-left: -163px
+  top: 0
+  top: 19px
+  
+  *
+    cursor: pointer
+  
+  &.pulse
+    +animation(pulse 0.5s linear 1)
+    
+
+.spinner-outer
+  display: block
+  width: 327px
+  height: 327px
+  position: absolute
+  left: 50%
+  margin-left: -163px
+  border-radius: 50%
+  background: url(../img/spinner-outer.png) center center no-repeat #32302e
+  
+  .playing &
+    +animation(spin-cw 5s linear infinite)
+
+
+.spinner-center 
+  height: 200px
+  width: 200px
+  position: absolute
+  background: url(../img/spinner-center.png) center center no-repeat 
+  border-radius: 50%
+  left: 50%
+  top: 50%
+  margin: -99px
+  pointer-events: none
+  
+  .playing &
+    +animation(spin-ccw 5s linear infinite)
+
+.play-sprite
+  +position(absolute, 50% null null 50%)
+  margin: -35px 0 0 -35px
+  background: url(../img/play-sprite.png) 0px 0px no-repeat
+  +size(70px)
+  
+  .playing &
+    background-position: 0px -70px
+    
+
+
+
+
+// Keyframes
++keyframes(spin-cw)
+  from
+    +transform(rotate(0deg))
+  to
+    +transform(rotate(360deg))
+
++keyframes(spin-ccw)
+  from
+    +transform(rotate(360deg))
+  to
+    +transform(rotate(0deg))
+
++keyframes(pulse)
+  from
+    +transform(scale(1.3))
+  to
+    +transform(scale(1))
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
