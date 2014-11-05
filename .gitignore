@@ -6,6 +6,8 @@
 # Icon must end with two \r
 Icon
 
+# Sass-specific
+.sass-cache
 
 # Thumbnails
 ._*
