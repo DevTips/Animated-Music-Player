@@ -5,36 +5,24 @@ $( document ).ready(function() {
     var $this = $(this),
         audio = $this.siblings('audio')[0],
         bpm = Number($this.siblings('audio').data('bpm'))
-        pulse = (60/bpm)*1000;
+        pulse = (60/bpm)*500;
     
-    
-    if (audio.paused === false) {
+    $this.toggleClass('playing');
+
+    if($this.hasClass('playing')) {
+      audio.play();
+      pulsing();
+      intervals = setInterval(function() { pulsing() }, pulse);
+    }
+
+    else {
       audio.pause();
       audio.currentTime = 0;
-      $this.removeClass('playing');
       clearInterval(intervals);
     }
-    
-    else {
-      audio.play();
-      $this.addClass('playing');
-      pulsing();
-      intervals = setInterval(function() {pulsing()}, pulse);
-      
-    }
-    
-    
+  
     function pulsing() {
-      
-      $this.addClass('pulse');
-      
-      setTimeout(function() {
-        $this.removeClass('pulse');  
-      }, pulse-100);
-      
-    }
-    
-    
+      $this.toggleClass('pulse');      
+    }  
   });
-
 });
