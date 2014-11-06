@@ -4,7 +4,7 @@ $( document ).ready(function() {
     
     var $this = $(this),
         audio = $this.siblings('audio')[0],
-        bpm = Number($this.siblings('audio').data('bpm'))
+        bpm = Number($this.siblings('audio').data('bpm')),
         pulse = (60/bpm)*1000;
     
     
@@ -26,11 +26,7 @@ $( document ).ready(function() {
     
     function pulsing() {
       
-      $this.addClass('pulse');
-      
-      setTimeout(function() {
-        $this.removeClass('pulse');  
-      }, pulse-100);
+      $this.removeClass('pulse').addClass('pulse');
       
     }
     
