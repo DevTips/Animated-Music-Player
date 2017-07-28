@@ -5,7 +5,8 @@ $( document ).ready(function() {
     var $this = $(this),
         audio = $this.siblings('audio')[0],
         bpm = Number($this.siblings('audio').data('bpm'))
-        pulse = (60/bpm)*1000;
+        pulse = (60/bpm)*1000,
+        intervals = null;
     
     
     if (audio.paused === false) {
@@ -19,7 +20,7 @@ $( document ).ready(function() {
       audio.play();
       $this.addClass('playing');
       pulsing();
-      intervals = setInterval(function() {pulsing()}, pulse);
+      intervals = setInterval(pulsing(), pulse);
       
     }
     
